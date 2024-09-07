@@ -1,4 +1,5 @@
 import 'package:expense_tracker/models/expense_model.dart';
+import 'package:expense_tracker/widgits/chart/chart.dart';
 import 'package:expense_tracker/widgits/expense_list/expense_list.dart';
 import 'package:expense_tracker/widgits/new_expense.dart';
 
@@ -88,7 +89,7 @@ class _ExpensesState extends State<Expenses> {
       body: Center(
         child: Column(
           children: [
-            const Text('Swipe ➡️ to delete expense'),
+            Chart(expenses: _registeredExpenses),
             Expanded(
               child: mainContent,
             ),
@@ -96,7 +97,6 @@ class _ExpensesState extends State<Expenses> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color.fromARGB(255, 255, 247, 247),
         onPressed: addNewExpense,
         child: const Icon(
           Icons.add,
